@@ -3,7 +3,37 @@
     <div class="scrollBox" ref="scrollBox">
       <div>
         <cube-slide id="slide"  :showDots='showDots' :data="items"/>
-      </div> 
+      </div>
+      <div>
+        <HomeTitle :data='notice_more'></HomeTitle>
+        <ul class="item_content">
+          <li class="item_content-item" v-for="item in notice_content">
+            <p>{{item.content}}</p>
+            <span>{{item.date}}</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <HomeTitle :data='news_more'></HomeTitle>
+        <ul class="item_content">
+          <li
+            class="item_content-item"
+            v-for="item in news_content"
+            @click="clickHandler(item.url)">
+            <p>{{item.content}}</p>
+            <span>{{item.date}}</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <HomeTitle :data='grunt_more'></HomeTitle>
+        <ul class="item_content">
+          <li class="item_content-item" v-for="item in grunt_content">
+            <p>{{item.content}}</p>
+            <span>{{item.date}}</span>
+          </li>
+        </ul>
+      </div>
     </div>
     <Tabbar :selectedLabelDefault='tabbarName' class="tabbar" ref="tabbar"></Tabbar>
   </div>
@@ -11,16 +41,105 @@
 
 <script>
 import Tabbar from '@/components/Tabbar'
+import HomeTitle from '@/components/HomeTitle'
 import { getScorllBoxHeight } from "@/js/util.js";
 export default {
   name: 'home',
   components: {
-    Tabbar
+    Tabbar,
+    HomeTitle,
   },
   data () {
     return {
       showDots:false,
       tabbarName:'首页',
+      notice_more:{
+        title:"通知",
+        url:""
+      },
+      notice_content:[
+        {
+          content:'你有一个通知',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'你有一个通知',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+      ],
+      news_more:{
+        title:"新闻",
+        url:""
+      },
+      news_content:[
+        {
+          content:'一个新闻',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'你有一个新闻',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+      ],
+      grunt_more:{
+        title:"政策性补贴",
+        url:""
+      },
+      grunt_content:[
+        {
+          content:'一个补贴',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },{
+          content:'一个补贴',
+          date:'10-15',
+          url:'https://www.baidu.com'
+        },
+        {
+          content:'一个补贴',
+          date:'10-19',
+          url:'https://www.baidu.com'
+        },
+      ],
       items: [
         {
           url: '',
@@ -39,12 +158,39 @@ export default {
     })
   },
   methods: {
-    
+    clickHandler (url) {
+      this.showToast('点击'+url)
+      console.log(this.$config)
+    },
   }
 }
 </script>
 <style lang="less">
-  .tabbar{
-
+  #slide{
+    width: 100%;
+    a{
+      display: flex;
+      width: 100%;
+      height: 6rem;
+      overflow: hidden;
+    }
+    img{
+      width: 100%;
+    }
+  }
+</style>
+<style  scoped lang="less">
+  .item_content{
+    font-size: 0.4rem;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    background-color: #eee;
+    width: 100%;
+    &-item{
+      height: 0.8rem;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>

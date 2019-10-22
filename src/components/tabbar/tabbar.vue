@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+  name: 'tabbar',
   props: {
     selectedLabelDefault: {
       type: String

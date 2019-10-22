@@ -9,6 +9,8 @@ import home from '@/pages/home/home.vue'
 import search from '@/pages/search/search.vue'
 import report from '@/pages/report/report.vue'
 import person from '@/pages/person/person.vue'
+import showInfo from '@/pages/showInfo/showInfo.vue'
+
 
 Vue.use(Router)
 
@@ -38,6 +40,11 @@ const router = new Router({
       path: '/person',
       name: 'person',
       component: person
+    },
+    {
+      path: '/showInfo',
+      name: 'showInfo',
+      component: showInfo
     },
   ],
   mode: 'history'

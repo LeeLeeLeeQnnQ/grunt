@@ -1,8 +1,9 @@
 <template>
   <div id="app" class="main">
-    <keep-alive :exclude="excludeList">
+    <router-view/>
+<!--     <keep-alive :exclude="excludeList">
       <router-view/>
-    </keep-alive>
+    </keep-alive> -->
   </div>
 </template>
 <script>
@@ -12,7 +13,7 @@ export default {
   },
   data () {
     return {
-      excludeList:[],
+      excludeList:['home','search','report','person'],
     }
   },
   mounted(){
@@ -28,17 +29,8 @@ export default {
 </script>
 <!-- 公用style -->
 <style lang="less">
-  #slide{
-    width: 100%;
-    a{
-      display: flex;
-      width: 100%;
-      height: 6rem;
-      overflow: hidden;
-    }
-    img{
-      width: 100%;
-    }
+  .scrollBox{
+    overflow:auto;
   }
 </style>
 

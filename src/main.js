@@ -10,6 +10,8 @@ import { showToast, confirmDialog , showLoading } from "./js/util.js";
 import config from '@/config'
 import App from './App'
 import router from './router'
+import echarts from 'echarts'
+
 import {
   Style,
   // basic
@@ -97,7 +99,8 @@ Vue.config.productionTip = false
 Vue.prototype.showToast = showToast;
 Vue.prototype.confirmDialog = confirmDialog;
 Vue.prototype.showLoading = showLoading;
-Vue.prototype.$config = config
+Vue.prototype.$config = config;
+Vue.prototype.$echarts = echarts;
 
 
 
